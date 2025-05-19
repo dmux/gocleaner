@@ -6,6 +6,9 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
+// LoadConfigFunc é um tipo de função para carregar a configuração
+type LoadConfigFunc func(string) (*Config, error)
+
 type Schedule struct {
 	Enabled bool   `yaml:"enabled"`
 	Cron    string `yaml:"cron"` // Pode usar expressão cron ou `@every 1h`
@@ -24,7 +27,7 @@ type Config struct {
 	Schedule Schedule `yaml:"schedule"`
 }
 
-func LoadConfig(path string) (*Config, error) {
+var LoadConfig LoadConfigFunc = func(path string) (*Config, error) {
 	data, err := os.ReadFile(path)
 	if err != nil {
 		return nil, err

@@ -1,0 +1,15 @@
+2025/05/19 11:37:26 Removido: /var/folders/z4/zjs9h8rx6gj_2xc97nfw1f240000gn/T/test_cleaner_3216863718/old/old.txt
+2025/05/19 11:37:26 Removido: /var/folders/z4/zjs9h8rx6gj_2xc97nfw1f240000gn/T/test_cleaner_3216863718/old
+2025/05/19 11:37:26 Erro ao enviar e-mail: mail: missing @ in addr-spec
+2025/05/19 11:39:30 Removido: /var/folders/z4/zjs9h8rx6gj_2xc97nfw1f240000gn/T/test_cleaner_2706793451/old/old.txt
+2025/05/19 11:39:30 Removido: /var/folders/z4/zjs9h8rx6gj_2xc97nfw1f240000gn/T/test_cleaner_2706793451/old
+2025/05/19 11:39:30 Erro ao enviar e-mail: mail: missing @ in addr-spec
+2025/05/19 11:41:19 Removido: /var/folders/z4/zjs9h8rx6gj_2xc97nfw1f240000gn/T/test_cleaner_3678393659/old/old.txt
+2025/05/19 11:41:19 Removido: /var/folders/z4/zjs9h8rx6gj_2xc97nfw1f240000gn/T/test_cleaner_3678393659/old
+2025/05/19 11:41:19 Erro ao enviar e-mail: mail: missing @ in addr-spec
+2025/05/19 11:43:55 Removido: /var/folders/z4/zjs9h8rx6gj_2xc97nfw1f240000gn/T/test_cleaner_3654911139/old/old.txt
+2025/05/19 11:43:55 Removido: /var/folders/z4/zjs9h8rx6gj_2xc97nfw1f240000gn/T/test_cleaner_3654911139/old
+2025/05/19 11:43:55 Erro ao enviar e-mail: mail: missing @ in addr-spec
+2025/05/19 11:46:29 Removido: /var/folders/z4/zjs9h8rx6gj_2xc97nfw1f240000gn/T/test_cleaner_2169697020/old/old.txt
+2025/05/19 11:46:29 Removido: /var/folders/z4/zjs9h8rx6gj_2xc97nfw1f240000gn/T/test_cleaner_2169697020/old
+2025/05/19 11:46:29 Erro ao enviar e-mail: mail: missing @ in addr-spec

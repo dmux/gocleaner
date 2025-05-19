@@ -12,14 +12,12 @@ import (
 	"gocleaner/internal"
 )
 
-func RunCleaner(cfg *config.Config) {
+// RunCleanerFunc é um tipo de função para executar o limpador
+type RunCleanerFunc func(*config.Config)
+
+var RunCleaner RunCleanerFunc = func(cfg *config.Config) {
 	internal.SetupLogger()
 	defer internal.LogFile.Close()
-
-	cfg, err := config.LoadConfig("config.yaml")
-	if err != nil {
-		panic(err)
-	}
 
 	cutoff := time.Now().AddDate(0, 0, -cfg.DaysThreshold)
 	deletedChan := make(chan string, 1000)
