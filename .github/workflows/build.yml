@@ -3,7 +3,7 @@ name: Build and Package GoCleaner
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
   workflow_dispatch:
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
-          go-version: '1.23.6'
+          go-version: "1.23.6"
 
       - name: Create dist directory
         run: mkdir -p dist
@@ -49,7 +49,7 @@ jobs:
           zip -r gocleaner-${{ matrix.goos }}-${{ matrix.goarch }}.zip *-${{ matrix.goos }}-${{ matrix.goarch }}* config.yaml *.bat 2>/dev/null || true
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: gocleaner-${{ matrix.goos }}-${{ matrix.goarch }}
           path: dist/gocleaner-${{ matrix.goos }}-${{ matrix.goarch }}.zip
