@@ -1,0 +1,55 @@
+name: Build and Package GoCleaner
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        goos: [windows, linux, darwin]
+        goarch: [amd64]
+    runs-on: ubuntu-latest
+    name: Build ${{ matrix.goos }}-${{ matrix.goarch }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.23.6'
+
+      - name: Create dist directory
+        run: mkdir -p dist
+
+      - name: Build Go binary
+        run: |
+          export GOOS=${{ matrix.goos }}
+          export GOARCH=${{ matrix.goarch }}
+          export EXT=""
+          if [ "$GOOS" = "windows" ]; then EXT=".exe"; fi
+          go build -o "dist/gocleaner-${GOOS}-${GOARCH}${EXT}" -ldflags="-s -w" .
+
+      - name: Copy extra files
+        run: |
+          cp config.yaml dist/
+          if [ "${{ matrix.goos }}" = "windows" ]; then
+            cp scripts/install.bat dist/
+            cp scripts/uninstall.bat dist/
+          fi
+
+      - name: Zip artifact
+        run: |
+          cd dist
+          zip -r gocleaner-${{ matrix.goos }}-${{ matrix.goarch }}.zip *-${{ matrix.goos }}-${{ matrix.goarch }}* config.yaml *.bat 2>/dev/null || true
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: gocleaner-${{ matrix.goos }}-${{ matrix.goarch }}
+          path: dist/gocleaner-${{ matrix.goos }}-${{ matrix.goarch }}.zip
