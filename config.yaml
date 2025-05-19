@@ -1,0 +1,13 @@
+directory: "E:\\Transfer"
+days_threshold: 30
+
+schedule:
+  enabled: true
+  cron: "0 0 * * *"
+
+smtp:
+  host: "smtp.office365.com"
+  port: 587
+  username: "e-mail"
+  password: "senha"
+  to: "destinatario"
